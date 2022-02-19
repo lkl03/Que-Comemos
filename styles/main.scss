@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+
 // colours
 $dark: #242424;
 $light: #ececec;
@@ -15,6 +16,18 @@ $mdm: 500;
 $smb: 600;
 $bld: 700;
 
+//media queries
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+      @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+      @content;
+  }
+}
 
 // global
 body {
@@ -42,12 +55,23 @@ body {
 .main{
   &_logo{
     font-size: 4rem;
+    @include tablet {
+      font-size: 3rem;
+    }
     text-align: center;
     color: $primary;
     margin: 2rem;
+    font-weight: $mdm;
+    span {
+      font-weight: $thn;
+      color: $secondary;
+    }
   }
   &_description{
     font-size: 2rem;
+    @include tablet {
+      font-size: 1.4rem;
+    }
     text-align: center;
     font-style: italic;
     color: $primary;
@@ -57,6 +81,9 @@ body {
     input {
       @extend %align-center;
       width: 20%;
+      @include tablet {
+        width: 75%;
+      }
       margin: 2rem auto;
       padding: 1rem;
       border-radius: 5px;
@@ -78,7 +105,7 @@ body {
         &::placeholder{
           color: transparent;
         }
-    }
+      }
     }
   }
   &_button{
@@ -91,6 +118,9 @@ body {
     button {
       @extend %align-center;
       width: 20%;
+      @include tablet {
+        width: 50%;
+      }
       margin: 2rem auto;
       padding: 1rem;
       border-radius: 10px;
@@ -108,14 +138,34 @@ body {
         box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(238, 101, 67, 0.23) 0px 3px 6px;
       }
     }
+    &-spinner{
+      animation: spin infinite 3s linear;
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
   }
   &_buttons{
     @extend %align-center;
     justify-content: space-evenly;
     width: 100%;
     margin: 5rem auto;
+    @include tablet {
+      flex-direction: column;
+      margin: 2rem auto;
+    }
     button{
       flex-basis: 25%;
+      @include tablet {
+        flex-basis: 100%;
+        margin: 1.5rem;
+        width: 75%;
+      }
       padding: 1rem;
       border-radius: 10px;
       border: none;
@@ -130,21 +180,34 @@ body {
       transition: all 0.2s ease-in-out;
       &:nth-of-type(1){
         box-shadow: rgba(238, 101, 67, 0.4) -5px 5px, rgba(238, 101, 67, 0.3) -10px 10px, rgba(238, 101, 67, 0.2) -15px 15px, rgba(238, 101, 67, 0.1) -20px 20px, rgba(238, 101, 67, 0.05) -25px 25px;
+        @include tablet {
+          box-shadow: rgba(238, 101, 67, 0.4) 0px 5px, rgba(238, 101, 67, 0.3) 0px 10px, rgba(238, 101, 67, 0.2) 0px 15px, rgba(238, 101, 67, 0.1) 0px 20px, rgba(238, 101, 67, 0.05) 0px 25px;
+        }
       }
       &:nth-of-type(2){
         box-shadow: rgba(238, 101, 67, 0.4) 0px 5px, rgba(238, 101, 67, 0.3) 0px 10px, rgba(238, 101, 67, 0.2) 0px 15px, rgba(238, 101, 67, 0.1) 0px 20px, rgba(238, 101, 67, 0.05) 0px 25px;
       }
       &:nth-of-type(3){
         box-shadow: rgba(238, 101, 67, 0.4) 5px 5px, rgba(238, 101, 67, 0.3) 10px 10px, rgba(238, 101, 67, 0.2) 15px 15px, rgba(238, 101, 67, 0.1) 20px 20px, rgba(238, 101, 67, 0.05) 25px 25px;
+        @include tablet {
+          box-shadow: rgba(238, 101, 67, 0.4) 0px 5px, rgba(238, 101, 67, 0.3) 0px 10px, rgba(238, 101, 67, 0.2) 0px 15px, rgba(238, 101, 67, 0.1) 0px 20px, rgba(238, 101, 67, 0.05) 0px 25px;
+        }
       }
       &:hover{
         box-shadow: rgba(238, 101, 67, 0.16) 0px 1px 4px;
+      }
+      svg {
+        margin: auto auto -0.2rem 0.25rem;
       }
     }
   }
   &_footer-logo{
     @extend %align-center;
     margin: 10rem auto 2rem auto;
+    @include tablet {
+      width: 60px;
+      margin: auto auto 2rem auto;
+    }
   }
   &_footer-text {
     @extend %align-center;
