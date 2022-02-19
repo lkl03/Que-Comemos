@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+// colours
+$dark: #242424;
+$light: #ececec;
+$primary: #ee6543;
+$secondary: #a15ece;
+
+//fonts
+$rlw: "Raleway", sans-serif;
+$thn: 100;
+$xlt: 200;
+$lgt: 300;
+$nml: 400;
+$mdm: 500;
+$smb: 600;
+$bld: 700;
+
+
+// global
+body {
+  font-family: $rlw;
+  font-weight: $nml;
+  color: $dark;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+%align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+}
+.main{
+  &_logo{
+    font-size: 4rem;
+    text-align: center;
+    color: $primary;
+    margin: 2rem;
+  }
+  &_description{
+    font-size: 2rem;
+    text-align: center;
+    font-style: italic;
+    color: $primary;
+  }
+  &_search{
+    width: 100%;
+    input {
+      @extend %align-center;
+      width: 20%;
+      margin: 2rem auto;
+      padding: 1rem;
+      border-radius: 5px;
+      border: none;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      &:hover{
+        box-shadow: rgba(161, 94, 206, 0.1) 0px 4px 6px -1px, rgba(161, 94, 206, 0.06) 0px 2px 4px -1px;
+        &::placeholder{
+          color: $secondary;
+        }
+      }
+      &:focus{
+        outline: none;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        color: $secondary;
+        font-size: 1rem;
+        &::placeholder{
+          color: transparent;
+        }
+    }
+    }
+  }
+  &_button{
+    width: 100%;
+    p{
+      text-align: center;
+      font-size: 1rem;
+      color: $primary;
+    }
+    button {
+      @extend %align-center;
+      width: 20%;
+      margin: 2rem auto;
+      padding: 1rem;
+      border-radius: 10px;
+      border: none;
+      font-family: $rlw;
+      font-weight: $smb;
+      font-size: 1rem;
+      text-align: center;
+      color: $light;
+      background-color: $primary;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      &:hover{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(238, 101, 67, 0.23) 0px 3px 6px;
+      }
+    }
+  }
+  &_buttons{
+    @extend %align-center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 5rem auto;
+    button{
+      flex-basis: 25%;
+      padding: 1rem;
+      border-radius: 10px;
+      border: none;
+      border-color: $primary;
+      font-family: $rlw;
+      font-weight: $smb;
+      font-size: 1rem;
+      text-align: center;
+      color: $primary;
+      background-color: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:nth-of-type(1){
+        box-shadow: rgba(238, 101, 67, 0.4) -5px 5px, rgba(238, 101, 67, 0.3) -10px 10px, rgba(238, 101, 67, 0.2) -15px 15px, rgba(238, 101, 67, 0.1) -20px 20px, rgba(238, 101, 67, 0.05) -25px 25px;
+      }
+      &:nth-of-type(2){
+        box-shadow: rgba(238, 101, 67, 0.4) 0px 5px, rgba(238, 101, 67, 0.3) 0px 10px, rgba(238, 101, 67, 0.2) 0px 15px, rgba(238, 101, 67, 0.1) 0px 20px, rgba(238, 101, 67, 0.05) 0px 25px;
+      }
+      &:nth-of-type(3){
+        box-shadow: rgba(238, 101, 67, 0.4) 5px 5px, rgba(238, 101, 67, 0.3) 10px 10px, rgba(238, 101, 67, 0.2) 15px 15px, rgba(238, 101, 67, 0.1) 20px 20px, rgba(238, 101, 67, 0.05) 25px 25px;
+      }
+      &:hover{
+        box-shadow: rgba(238, 101, 67, 0.16) 0px 1px 4px;
+      }
+    }
+  }
+  &_footer-logo{
+    @extend %align-center;
+    margin: 10rem auto 2rem auto;
+  }
+  &_footer-text {
+    @extend %align-center;
+    flex-direction: column
+  }
+  &_footer-links{
+    @extend %align-center;
+    width: 100%;
+    a {
+      text-decoration: none;
+      color: $primary;
+      transition: all 0.2s ease-in-out;
+      &:hover{
+        color: $secondary;
+      }
+    }
+    & > * ~ *  {
+      margin-left: 1rem;
+    }
+  }
+  &_footer-copy{
+    color: $secondary;
+    margin: 0.5rem;
+  }
+}
