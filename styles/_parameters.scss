@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+
+// colours
+$dark: #242424;
+$light: #ececec;
+$primary: #ee6543;
+$secondary: #a15ece;
+
+//fonts
+$rlw: "Raleway", sans-serif;
+$thn: 100;
+$xlt: 200;
+$lgt: 300;
+$nml: 400;
+$mdm: 500;
+$smb: 600;
+$bld: 700;
+
+//media queries
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+      @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+      @content;
+  }
+}

@@ -1,0 +1,13 @@
+.backto{
+    position: absolute;
+    margin: 2.5rem;
+    svg{
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: $dark;
+        transition: all 0.2s ease-in-out;
+        &:hover{
+            color: $primary;
+        }
+    }
+}
