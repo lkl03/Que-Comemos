@@ -24,7 +24,7 @@ import { FaCog } from 'react-icons/fa'
 export default function Home() {
 
   const [quote, setQuote] = useState({
-    anime: null,
+    anime: 'Preparando...',
     character: null,
     quote: null
   })
@@ -35,19 +35,17 @@ export default function Home() {
   }
 
   const generate = async () => {
-    setClicked(!clicked)
-    setQuote(await fetchQuote())
+    setClicked(true) 
+    if(clicked == true){
+      setQuote(await fetchQuote())
+    }
   }
-
-  useEffect(async () => {
-    setQuote(await fetchQuote())
-  }, [])
 
 
   const [clicked, setClicked] = useState(false)
 
-    const handleClicked = (props) => {
-      setClicked(!clicked)
+    const handleClicked = () => {
+      setClicked(false)
     }
 
   return (
@@ -60,16 +58,17 @@ export default function Home() {
         <Search />
         <div className="main_button">
           <p>¿O estás sin ideas? ¡Te ayudamos!</p>
-          <button onClick={generate}>{clicked && quote ? 'Preparando...' : 'Generar receta '} <FaCog className={clicked ? 'main_button-spinner' : null}/> </button>
+          <button onClick={generate}>{clicked && quote ? 'Generar nueva receta' : 'Generar receta '} <FaCog className={clicked ? 'main_button-spinner' : null}/> </button>
           {clicked ? 
               <div>
                 <p style={{fontWeight: 'bold'}}>{quote.anime}</p>
                 <p>{quote.quote}</p>
-                <p style={{fontWeight: 'bold'}}>-{quote.character}</p>
+                <p style={{fontWeight: 'bold'}}>{quote.character}</p>
               </div> 
             : ''
           }
         </div>
+        <a onClick={handleClicked}>cerrar</a>
         <InfoButtons />
         <Footer />
       </div>
